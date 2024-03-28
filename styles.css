@@ -11,24 +11,9 @@ body {
     flex-direction: column;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-}
-
 .container {
     width: 80%;
     margin: 0 auto;
-}
-
-h1 {
-    margin: 0;
 }
 
 main {
@@ -60,14 +45,6 @@ main {
     border: 3px solid #080808;
     padding: 20px;
     border-radius: 15px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: auto;
 }
 
 .flag {
@@ -116,4 +93,87 @@ footer {
 .button-31:hover,
 .button-31:focus {
     opacity: .75;
+}
+
+.weather-icon {
+    height: 80px;
+    width: auto;
+}
+
+.api_links ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    margin: 0;
+}
+
+li {
+    margin: auto 20px;
+}
+
+li a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    height: 100px;
+}
+
+nav {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+footer .container {
+    align-items: center;
+}
+
+.social-media {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.social-link {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    filter: grayscale(100%) brightness(50%);
+    transition: filter 0.3s ease;
+}
+
+.social-icon {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    margin: 5px;
+}
+
+p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
 }
