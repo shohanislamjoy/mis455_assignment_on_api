@@ -21,7 +21,7 @@ function search_country() {
       <h3>${country.name.common}</h3>
       <p>Capital: ${country.capital}</p>
       <p>Population: ${country.population}</p>
-      <button class="button-31" onclick="get_weather('${country.name.common}', this)">More Details</button>
+      <button class="button-31" id="weather_button${country.name.common}" onclick="get_weather('${country.name.common}', this)">More Details</button>
       <div id="${country.name.common}Weather" style="display: none;"></div>
     `;
                         country_grid.appendChild(countryCard);
@@ -34,6 +34,9 @@ function search_country() {
 
 function get_weather(countryName) {
     const weather_div = document.getElementById(`${countryName}Weather`);
+
+    const weather_button = document.getElementById("weather_button" + countryName);
+
     var url_0 = `https://api.openweathermap.org/data/2.5/weather?q=${countryName}&appid=90dfe8c16d20d81a6b365f55111568ea&units=metric`;
     fetch(url_0)
         .then(response => response.json())
@@ -43,7 +46,20 @@ function get_weather(countryName) {
       <p>Weather: ${data.weather[0].description}</p>
       <p>Temperature: ${data.main.temp}°C</p>
     `;
-
+            weather_div.style.display = 'block';
+            weather_button.textContent = 'Hide Details';
+            weather_button.onclick = function() {
+                hide_weather(weather_div, weather_button);
+            };
         })
 
+}
+
+
+function hide_weather(weather_div, button) {
+    weather_div.style.display = 'none';
+    button.textContent = 'More Details';
+    button.onclick = function() {
+        get_weather(weather_div.id.slice(0, -7), button);
+    };
 }
